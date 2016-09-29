@@ -31,49 +31,49 @@
             android:orientation="horizontal">
     
             <ImageView
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:id="@+id/die_1"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
-                android:src="@drawable/die_1" />
+                android:src="@drawable/die_1"
+                android:onClick="toggleFrozenDie" />
     
             <ImageView
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:id="@+id/die_2"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
-                android:src="@drawable/die_2" />
+                android:src="@drawable/die_2"
+                android:onClick="toggleFrozenDie" />
     
             <ImageView
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:id="@+id/die_3"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
-                android:src="@drawable/die_3" />
+                android:src="@drawable/die_3"
+                android:onClick="toggleFrozenDie" />
     
             <ImageView
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:id="@+id/die_4"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
-                android:src="@drawable/die_4" />
+                android:src="@drawable/die_4"
+                android:onClick="toggleFrozenDie" />
     
             <ImageView
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:id="@+id/die_5"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
-                android:src="@drawable/die_5" />
+                android:src="@drawable/die_5"
+                android:onClick="toggleFrozenDie" />
     
         </LinearLayout>
 
