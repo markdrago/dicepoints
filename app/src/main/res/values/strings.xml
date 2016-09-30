@@ -2,4 +2,12 @@
     <string name="app_name">Boatzee</string>
     <string name="roll_button">Roll</string>
     <string name="play_button">Play</string>
+    <string name="three_of_a_kind">3 of a Kind</string>
+    <string name="four_of_a_kind">4 of a Kind</string>
+    <string name="five_of_a_kind">5 of a Kind</string>
+    <string name="full_house">Full House</string>
+    <string name="small_straight">Small Straight</string>
+    <string name="large_straight">Large Straight</string>
+    <string name="chance">Chance</string>
+    <string name="bottom_total">Bottom Total</string>
 </resources>

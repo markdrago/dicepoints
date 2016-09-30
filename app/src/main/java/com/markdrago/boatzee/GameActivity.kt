@@ -3,16 +3,20 @@ package com.markdrago.boatzee
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.markdrago.boatzee.domain.DiceState
+import com.markdrago.boatzee.domain.ScoreCard
+import com.markdrago.boatzee.service.ScoreKeeper
 import java.util.Random
 
 class GameActivity : AppCompatActivity() {
 
     private val random = Random()
     private var diceState = DiceState({random.nextInt(GameConstants.DICE_SIDES) + 1})
+    private var scoreCard = ScoreCard()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,21 +28,41 @@ class GameActivity : AppCompatActivity() {
 
         val textView = findViewById(R.id.roll_results) as TextView
         textView.text = diceState.toString()
-        renderDiceState(diceState)
+        renderDiceState()
     }
 
     fun toggleFrozenDie(view: View) {
         diceState = diceState.toggleFrozenDie(getDieViewPosition(view))
-        renderDiceState(diceState)
+        renderDiceState()
     }
 
-    fun renderDiceState(diceState: DiceState) {
+    fun renderDiceState() {
         val diceBarLayout = findViewById(R.id.dice_bar) as LinearLayout
         diceState.diceList.forEachIndexed { i, value ->
             val imageView = diceBarLayout.getChildAt(i) as ImageView
             val drawable = getDrawable(getDieResource(value, diceState.frozenDice[i]))
             imageView.setImageDrawable(drawable)
         }
+    }
+
+    fun renderScoreCard() {
+        renderScoreCardSingleFaces()
+    }
+
+    fun renderScoreCardSingleFaces() {
+        val scores = scoreCard.singleFaces.map({it.score.toString()})
+        (findViewById(R.id.ones_button) as Button).text = scores[0]
+        (findViewById(R.id.twos_button) as Button).text = scores[1]
+        (findViewById(R.id.threes_button) as Button).text = scores[2]
+        (findViewById(R.id.fours_button) as Button).text = scores[3]
+        (findViewById(R.id.fives_button) as Button).text = scores[4]
+        (findViewById(R.id.sixes_button) as Button).text = scores[5]
+    }
+
+    fun recordScoreForSingleFace(view: View) {
+        val faceValue = view.tag as String
+        scoreCard = ScoreKeeper.recordScoreForSingleFace(scoreCard, Integer.valueOf(faceValue), diceState.diceList)
+        renderScoreCard()
     }
 
     fun getDieViewPosition(view: View): Int {
