@@ -361,6 +361,7 @@
 
             <ImageView
                 android:id="@+id/die_1"
+                android:tag="0"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_weight="1"
@@ -370,6 +371,7 @@
 
             <ImageView
                 android:id="@+id/die_2"
+                android:tag="1"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_weight="1"
@@ -379,6 +381,7 @@
 
             <ImageView
                 android:id="@+id/die_3"
+                android:tag="2"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_weight="1"
@@ -388,6 +391,7 @@
 
             <ImageView
                 android:id="@+id/die_4"
+                android:tag="3"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_weight="1"
@@ -397,6 +401,7 @@
 
             <ImageView
                 android:id="@+id/die_5"
+                android:tag="4"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_weight="1"

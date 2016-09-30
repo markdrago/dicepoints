@@ -36,6 +36,37 @@ class GameActivity : AppCompatActivity() {
         renderDiceState()
     }
 
+    fun recordScoreForSingleFace(view: View) {
+        val faceValue = view.tag as String
+        scoreCard = ScoreKeeper.recordScoreForSingleFace(scoreCard, Integer.valueOf(faceValue), diceState.diceList)
+        renderScoreCard()
+    }
+
+    fun recordScoreForThreeOfAKind(view: View) {
+        scoreCard = ScoreKeeper.recordScoreForThreeOfAKind(scoreCard, diceState.diceList)
+        renderScoreCard()
+    }
+
+    fun recordScoreForFourOfAKind(view: View) {
+        scoreCard = ScoreKeeper.recordScoreForFourOfAKind(scoreCard, diceState.diceList)
+        renderScoreCard()
+    }
+
+    fun recordScoreForFiveOfAKind(view: View) {
+        scoreCard = ScoreKeeper.recordScoreForFiveOfAKind(scoreCard, diceState.diceList)
+        renderScoreCard()
+    }
+
+    fun recordScoreForSmallStraight(view: View) {
+        scoreCard = ScoreKeeper.recordScoreForSmallStraight(scoreCard, diceState.diceList)
+        renderScoreCard()
+    }
+
+    fun recordScoreForLargeStraight(view: View) {
+        scoreCard = ScoreKeeper.recordScoreForLargeStraight(scoreCard, diceState.diceList)
+        renderScoreCard()
+    }
+
     fun renderDiceState() {
         val diceBarLayout = findViewById(R.id.dice_bar) as LinearLayout
         diceState.diceList.forEachIndexed { i, value ->
@@ -47,6 +78,11 @@ class GameActivity : AppCompatActivity() {
 
     fun renderScoreCard() {
         renderScoreCardSingleFaces()
+        (findViewById(R.id.three_of_a_kind_button) as Button).text = scoreCard.threeOfAKind.score.toString()
+        (findViewById(R.id.four_of_a_kind_button) as Button).text = scoreCard.fourOfAKind.score.toString()
+        (findViewById(R.id.five_of_a_kind_button) as Button).text = scoreCard.fiveOfAKind.score.toString()
+        (findViewById(R.id.small_straight_button) as Button).text = scoreCard.smallStraight.score.toString()
+        (findViewById(R.id.large_straight_button) as Button).text = scoreCard.largeStraight.score.toString()
     }
 
     fun renderScoreCardSingleFaces() {
@@ -59,21 +95,8 @@ class GameActivity : AppCompatActivity() {
         (findViewById(R.id.sixes_button) as Button).text = scores[5]
     }
 
-    fun recordScoreForSingleFace(view: View) {
-        val faceValue = view.tag as String
-        scoreCard = ScoreKeeper.recordScoreForSingleFace(scoreCard, Integer.valueOf(faceValue), diceState.diceList)
-        renderScoreCard()
-    }
-
     fun getDieViewPosition(view: View): Int {
-        return when(view.id) {
-            R.id.die_1 -> 0
-            R.id.die_2 -> 1
-            R.id.die_3 -> 2
-            R.id.die_4 -> 3
-            R.id.die_5 -> 4
-            else -> throw IllegalStateException("unexpected view id for die < 1 or > 5")
-        }
+        return Integer.valueOf(view.tag as String)
     }
 
     fun getDieResource(value: Int, isFrozen: Boolean): Int {
