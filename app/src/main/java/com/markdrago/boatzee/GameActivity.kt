@@ -78,15 +78,15 @@ class GameActivity : AppCompatActivity() {
 
     fun renderScoreCard() {
         renderScoreCardSingleFaces()
-        (findViewById(R.id.three_of_a_kind_button) as Button).text = scoreCard.threeOfAKind.score.toString()
-        (findViewById(R.id.four_of_a_kind_button) as Button).text = scoreCard.fourOfAKind.score.toString()
-        (findViewById(R.id.five_of_a_kind_button) as Button).text = scoreCard.fiveOfAKind.score.toString()
-        (findViewById(R.id.small_straight_button) as Button).text = scoreCard.smallStraight.score.toString()
-        (findViewById(R.id.large_straight_button) as Button).text = scoreCard.largeStraight.score.toString()
+        (findViewById(R.id.three_of_a_kind_button) as Button).text = scoreCard.threeOfAKind.toString()
+        (findViewById(R.id.four_of_a_kind_button) as Button).text = scoreCard.fourOfAKind.toString()
+        (findViewById(R.id.five_of_a_kind_button) as Button).text = scoreCard.fiveOfAKind.toString()
+        (findViewById(R.id.small_straight_button) as Button).text = scoreCard.smallStraight.toString()
+        (findViewById(R.id.large_straight_button) as Button).text = scoreCard.largeStraight.toString()
     }
 
     fun renderScoreCardSingleFaces() {
-        val scores = scoreCard.singleFaces.map({it.score.toString()})
+        val scores = scoreCard.singleFaces.map({it.toString()})
         (findViewById(R.id.ones_button) as Button).text = scores[0]
         (findViewById(R.id.twos_button) as Button).text = scores[1]
         (findViewById(R.id.threes_button) as Button).text = scores[2]
