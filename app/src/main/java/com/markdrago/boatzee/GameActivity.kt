@@ -8,15 +8,14 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.markdrago.boatzee.domain.DiceState
-import com.markdrago.boatzee.domain.ScoreCard
-import com.markdrago.boatzee.service.ScoreKeeper
-import java.util.Random
+import com.markdrago.boatzee.domain.ScoreBox
+import java.util.*
 
 class GameActivity : AppCompatActivity() {
 
     private val random = Random()
     private var diceState = DiceState({random.nextInt(GameConstants.DICE_SIDES) + 1})
-    private var scoreCard = ScoreCard()
+    private var scoreCard: MutableMap<ScoreBox, Int> = hashMapOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,34 +35,9 @@ class GameActivity : AppCompatActivity() {
         renderDiceState()
     }
 
-    fun recordScoreForSingleFace(view: View) {
-        val faceValue = view.tag as String
-        scoreCard = ScoreKeeper.recordScoreForSingleFace(scoreCard, Integer.valueOf(faceValue), diceState.diceList)
-        renderScoreCard()
-    }
-
-    fun recordScoreForThreeOfAKind(view: View) {
-        scoreCard = ScoreKeeper.recordScoreForThreeOfAKind(scoreCard, diceState.diceList)
-        renderScoreCard()
-    }
-
-    fun recordScoreForFourOfAKind(view: View) {
-        scoreCard = ScoreKeeper.recordScoreForFourOfAKind(scoreCard, diceState.diceList)
-        renderScoreCard()
-    }
-
-    fun recordScoreForFiveOfAKind(view: View) {
-        scoreCard = ScoreKeeper.recordScoreForFiveOfAKind(scoreCard, diceState.diceList)
-        renderScoreCard()
-    }
-
-    fun recordScoreForSmallStraight(view: View) {
-        scoreCard = ScoreKeeper.recordScoreForSmallStraight(scoreCard, diceState.diceList)
-        renderScoreCard()
-    }
-
-    fun recordScoreForLargeStraight(view: View) {
-        scoreCard = ScoreKeeper.recordScoreForLargeStraight(scoreCard, diceState.diceList)
+    fun recordScore(view: View) {
+        val scoreBox = ScoreBox.valueOf(view.tag as String)
+        scoreCard[scoreBox] = scoreBox.score(diceState.diceList)
         renderScoreCard()
     }
 
@@ -77,22 +51,25 @@ class GameActivity : AppCompatActivity() {
     }
 
     fun renderScoreCard() {
-        renderScoreCardSingleFaces()
-        (findViewById(R.id.three_of_a_kind_button) as Button).text = scoreCard.threeOfAKind.toString()
-        (findViewById(R.id.four_of_a_kind_button) as Button).text = scoreCard.fourOfAKind.toString()
-        (findViewById(R.id.five_of_a_kind_button) as Button).text = scoreCard.fiveOfAKind.toString()
-        (findViewById(R.id.small_straight_button) as Button).text = scoreCard.smallStraight.toString()
-        (findViewById(R.id.large_straight_button) as Button).text = scoreCard.largeStraight.toString()
+        renderButtonScore(R.id.ones_button, scoreCard[ScoreBox.ONES])
+        renderButtonScore(R.id.twos_button, scoreCard[ScoreBox.TWOS])
+        renderButtonScore(R.id.threes_button, scoreCard[ScoreBox.THREES])
+        renderButtonScore(R.id.fours_button, scoreCard[ScoreBox.FOURS])
+        renderButtonScore(R.id.fives_button, scoreCard[ScoreBox.FIVES])
+        renderButtonScore(R.id.sixes_button, scoreCard[ScoreBox.SIXES])
+        renderButtonScore(R.id.three_of_a_kind_button, scoreCard[ScoreBox.THREE_OF_A_KIND])
+        renderButtonScore(R.id.four_of_a_kind_button, scoreCard[ScoreBox.FOUR_OF_A_KIND])
+        renderButtonScore(R.id.full_house_button, scoreCard[ScoreBox.FULL_HOUSE])
+        renderButtonScore(R.id.five_of_a_kind_button, scoreCard[ScoreBox.FIVE_OF_A_KIND])
+        renderButtonScore(R.id.small_straight_button, scoreCard[ScoreBox.SMALL_STRAIGHT])
+        renderButtonScore(R.id.large_straight_button, scoreCard[ScoreBox.LARGE_STRAIGHT])
+        renderButtonScore(R.id.chance_button, scoreCard[ScoreBox.CHANCE])
     }
 
-    fun renderScoreCardSingleFaces() {
-        val scores = scoreCard.singleFaces.map({it.toString()})
-        (findViewById(R.id.ones_button) as Button).text = scores[0]
-        (findViewById(R.id.twos_button) as Button).text = scores[1]
-        (findViewById(R.id.threes_button) as Button).text = scores[2]
-        (findViewById(R.id.fours_button) as Button).text = scores[3]
-        (findViewById(R.id.fives_button) as Button).text = scores[4]
-        (findViewById(R.id.sixes_button) as Button).text = scores[5]
+    fun renderButtonScore(viewId: Int, score: Int?) {
+        val view = findViewById(viewId) as Button
+        val label = score?.toString() ?: ""
+        view.text = label
     }
 
     fun getDieViewPosition(view: View): Int {

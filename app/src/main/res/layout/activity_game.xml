@@ -121,8 +121,8 @@
 
             <Button
                 android:id="@+id/ones_button"
-                android:onClick="recordScoreForSingleFace"
-                android:tag="1"
+                android:onClick="recordScore"
+                android:tag="ONES"
                 android:layout_gravity="center"
                 android:layout_height="@dimen/score_button_width"
                 android:layout_width="@dimen/score_row_height">
@@ -130,8 +130,8 @@
 
             <Button
                 android:id="@+id/twos_button"
-                android:onClick="recordScoreForSingleFace"
-                android:tag="2"
+                android:onClick="recordScore"
+                android:tag="TWOS"
                 android:layout_gravity="center"
                 android:text=""
                 android:layout_width="@dimen/score_button_width"
@@ -140,8 +140,8 @@
 
             <Button
                 android:id="@+id/threes_button"
-                android:onClick="recordScoreForSingleFace"
-                android:tag="3"
+                android:onClick="recordScore"
+                android:tag="THREES"
                 android:layout_gravity="center"
                 android:text=""
                 android:layout_width="@dimen/score_button_width"
@@ -150,8 +150,8 @@
 
             <Button
                 android:id="@+id/fours_button"
-                android:onClick="recordScoreForSingleFace"
-                android:tag="4"
+                android:onClick="recordScore"
+                android:tag="FOURS"
                 android:layout_gravity="center"
                 android:text=""
                 android:layout_width="@dimen/score_button_width"
@@ -160,8 +160,8 @@
 
             <Button
                 android:id="@+id/fives_button"
-                android:onClick="recordScoreForSingleFace"
-                android:tag="5"
+                android:onClick="recordScore"
+                android:tag="FIVES"
                 android:layout_gravity="center"
                 android:text=""
                 android:layout_width="@dimen/score_button_width"
@@ -170,8 +170,8 @@
 
             <Button
                 android:id="@+id/sixes_button"
-                android:onClick="recordScoreForSingleFace"
-                android:tag="6"
+                android:onClick="recordScore"
+                android:tag="SIXES"
                 android:layout_gravity="center"
                 android:text=""
                 android:layout_width="@dimen/score_button_width"
@@ -271,7 +271,8 @@
 
             <Button
                 android:id="@+id/three_of_a_kind_button"
-                android:onClick="recordScoreForThreeOfAKind"
+                android:onClick="recordScore"
+                android:tag="THREE_OF_A_KIND"
                 android:layout_gravity="center"
                 android:text=""
                 android:layout_width="@dimen/score_button_width"
@@ -280,7 +281,8 @@
 
             <Button
                 android:id="@+id/four_of_a_kind_button"
-                android:onClick="recordScoreForFourOfAKind"
+                android:onClick="recordScore"
+                android:tag="FOUR_OF_A_KIND"
                 android:layout_gravity="center"
                 android:text=""
                 android:layout_width="@dimen/score_button_width"
@@ -289,7 +291,8 @@
 
             <Button
                 android:id="@+id/full_house_button"
-                android:onClick="recordScoreForFullHouse"
+                android:onClick="recordScore"
+                android:tag="FULL_HOUSE"
                 android:layout_gravity="center"
                 android:text=""
                 android:layout_width="@dimen/score_button_width"
@@ -298,7 +301,8 @@
 
             <Button
                 android:id="@+id/small_straight_button"
-                android:onClick="recordScoreForSmallStraight"
+                android:onClick="recordScore"
+                android:tag="SMALL_STRAIGHT"
                 android:layout_gravity="center"
                 android:text=""
                 android:layout_width="@dimen/score_button_width"
@@ -307,7 +311,8 @@
 
             <Button
                 android:id="@+id/large_straight_button"
-                android:onClick="recordScoreForLargeStraight"
+                android:onClick="recordScore"
+                android:tag="LARGE_STRAIGHT"
                 android:layout_gravity="center"
                 android:text=""
                 android:layout_width="@dimen/score_button_width"
@@ -316,7 +321,8 @@
 
             <Button
                 android:id="@+id/five_of_a_kind_button"
-                android:onClick="recordScoreForFiveOfAKind"
+                android:onClick="recordScore"
+                android:tag="FIVE_OF_A_KIND"
                 android:layout_gravity="center"
                 android:text=""
                 android:layout_width="@dimen/score_button_width"
@@ -325,7 +331,8 @@
 
             <Button
                 android:id="@+id/chance_button"
-                android:onClick="recordScoreForChance"
+                android:onClick="recordScore"
+                android:tag="CHANCE"
                 android:layout_gravity="center"
                 android:text=""
                 android:layout_width="@dimen/score_button_width"

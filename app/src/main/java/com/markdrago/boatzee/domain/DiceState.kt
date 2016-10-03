@@ -4,9 +4,6 @@ import com.markdrago.boatzee.GameConstants
 
 class DiceState(val nextRoll: () -> Int, val diceList: IntArray, val frozenDice: BooleanArray) {
 
-//    constructor(nextRoll: () -> Int, diceList: IntArray) :
-//        this(nextRoll, diceList, BooleanArray(GameConstants.DICE_COUNT, {false}))
-
     constructor(nextRoll: () -> Int):
         this(nextRoll, IntArray(GameConstants.DICE_COUNT, {x -> nextRoll()}), BooleanArray(GameConstants.DICE_COUNT, {false}))
 
