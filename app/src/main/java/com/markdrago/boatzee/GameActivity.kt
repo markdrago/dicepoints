@@ -9,6 +9,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.markdrago.boatzee.domain.DiceState
 import com.markdrago.boatzee.domain.ScoreBox
+import com.markdrago.boatzee.service.ScoreTotaller
 import java.util.*
 
 class GameActivity : AppCompatActivity() {
@@ -24,9 +25,6 @@ class GameActivity : AppCompatActivity() {
 
     fun rollDice(view: View) {
         diceState = diceState.partialRoll()
-
-        val textView = findViewById(R.id.roll_results) as TextView
-        textView.text = diceState.toString()
         renderDiceState()
     }
 
@@ -39,6 +37,7 @@ class GameActivity : AppCompatActivity() {
         val scoreBox = ScoreBox.valueOf(view.tag as String)
         scoreCard[scoreBox] = scoreBox.score(diceState.diceList)
         renderScoreCard()
+        renderTotals()
     }
 
     fun renderDiceState() {
@@ -64,12 +63,24 @@ class GameActivity : AppCompatActivity() {
         renderButtonScore(R.id.small_straight_button, scoreCard[ScoreBox.SMALL_STRAIGHT])
         renderButtonScore(R.id.large_straight_button, scoreCard[ScoreBox.LARGE_STRAIGHT])
         renderButtonScore(R.id.chance_button, scoreCard[ScoreBox.CHANCE])
+        renderButtonScore(R.id.top_sub_total, ScoreTotaller.scoreForTopSubTotal(scoreCard))
+        renderButtonScore(R.id.top_bonus, ScoreTotaller.scoreForBonus(scoreCard))
+        renderButtonScore(R.id.top_total, ScoreTotaller.scoreForTopTotal(scoreCard))
+        renderButtonScore(R.id.bottom_total, ScoreTotaller.scoreForBottomTotal(scoreCard))
     }
 
     fun renderButtonScore(viewId: Int, score: Int?) {
         val view = findViewById(viewId) as Button
         val label = score?.toString() ?: ""
         view.text = label
+    }
+
+    fun renderTotals() {
+        val player_score_view = findViewById(R.id.player_score) as TextView
+        player_score_view.text = "Your Score: " + ScoreTotaller.scoreTotal(scoreCard).toString()
+
+        val opp_score_view = findViewById(R.id.opp_score) as TextView
+        opp_score_view.text = "Their Score: 0"
     }
 
     fun getDieViewPosition(view: View): Int {

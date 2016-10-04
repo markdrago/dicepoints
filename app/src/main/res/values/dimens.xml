@@ -4,5 +4,5 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="score_row_height">36dp</dimen>
-    <dimen name="score_button_width">40dp</dimen>
+    <dimen name="score_button_width">48dp</dimen>
 </resources>

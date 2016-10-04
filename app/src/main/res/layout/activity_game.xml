@@ -12,344 +12,345 @@
         android:orientation="vertical"
         android:baselineAligned="false">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/score_totals_bar"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:baselineAligned="false">
-
-        <TextView
-            android:text="Your Score: 115"
-            android:textSize="16sp"
-            android:layout_width="0dp"
-            android:layout_height="36dp"
-            android:layout_weight="1"
-            android:gravity="center" />
-
-        <TextView
-            android:text="Their Score: 112"
-            android:textSize="16sp"
-            android:layout_width="0dp"
-            android:layout_height="36dp"
-            android:layout_weight="1"
-            android:gravity="center" />
-
-    </LinearLayout>
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/score_card"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:baselineAligned="false">
-
-        <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/score_card_left_labels"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/score_totals_bar"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <TextView
-                android:text="Ones"
+                android:id="@+id/player_score"
+                android:text="Your Score: 0"
                 android:textSize="16sp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/score_row_height"
-                android:gravity="right|center" />
-            <TextView
-                android:text="Twos"
-                android:textSize="16sp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/score_row_height"
-                android:gravity="right|center" />
-            <TextView
-                android:text="Threes"
-                android:textSize="16sp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/score_row_height"
-                android:gravity="right|center" />
-            <TextView
-                android:text="Fours"
-                android:textSize="16sp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/score_row_height"
-                android:gravity="right|center" />
-            <TextView
-                android:text="Fives"
-                android:textSize="16sp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/score_row_height"
-                android:gravity="right|center" />
-            <TextView
-                android:text="Sixes"
-                android:textSize="16sp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/score_row_height"
-                android:gravity="right|center" />
-            <TextView
-                android:text="Top Sub-Total"
-                android:textSize="16sp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/score_row_height"
-                android:gravity="right|center" />
-            <TextView
-                android:text="Bonus (> 62)"
-                android:textSize="16sp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/score_row_height"
-                android:gravity="right|center" />
-            <TextView
-                android:text="Top Total"
-                android:textSize="16sp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/score_row_height"
-                android:gravity="right|center" />
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:gravity="center" />
 
             <TextView
-                android:id="@+id/roll_results"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:id="@+id/opp_score"
+                android:text="Their Score: 0"
+                android:textSize="16sp"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:gravity="center" />
 
         </LinearLayout>
 
-        <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/score_card_left_buttons"
-            android:layout_width="50dp"
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/score_card"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
-            <Button
-                android:id="@+id/ones_button"
-                android:onClick="recordScore"
-                android:tag="ONES"
-                android:layout_gravity="center"
-                android:layout_height="@dimen/score_button_width"
-                android:layout_width="@dimen/score_row_height">
-            </Button>
+            <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/score_card_left_labels"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/twos_button"
-                android:onClick="recordScore"
-                android:tag="TWOS"
-                android:layout_gravity="center"
-                android:text=""
-                android:layout_width="@dimen/score_button_width"
-                android:layout_height="@dimen/score_row_height">
-            </Button>
+                <TextView
+                    android:text="Ones"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/score_row_height"
+                    android:gravity="right|center" />
+                <TextView
+                    android:text="Twos"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/score_row_height"
+                    android:gravity="right|center" />
+                <TextView
+                    android:text="Threes"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/score_row_height"
+                    android:gravity="right|center" />
+                <TextView
+                    android:text="Fours"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/score_row_height"
+                    android:gravity="right|center" />
+                <TextView
+                    android:text="Fives"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/score_row_height"
+                    android:gravity="right|center" />
+                <TextView
+                    android:text="Sixes"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/score_row_height"
+                    android:gravity="right|center" />
+                <TextView
+                    android:text="Top Sub-Total"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/score_row_height"
+                    android:gravity="right|center" />
+                <TextView
+                    android:text="Bonus (> 62)"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/score_row_height"
+                    android:gravity="right|center" />
+                <TextView
+                    android:text="Top Total"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/score_row_height"
+                    android:gravity="right|center" />
 
-            <Button
-                android:id="@+id/threes_button"
-                android:onClick="recordScore"
-                android:tag="THREES"
-                android:layout_gravity="center"
-                android:text=""
-                android:layout_width="@dimen/score_button_width"
-                android:layout_height="@dimen/score_row_height">
-            </Button>
+            </LinearLayout>
 
-            <Button
-                android:id="@+id/fours_button"
-                android:onClick="recordScore"
-                android:tag="FOURS"
-                android:layout_gravity="center"
-                android:text=""
-                android:layout_width="@dimen/score_button_width"
-                android:layout_height="@dimen/score_row_height">
-            </Button>
+            <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/score_card_left_buttons"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/fives_button"
-                android:onClick="recordScore"
-                android:tag="FIVES"
-                android:layout_gravity="center"
-                android:text=""
-                android:layout_width="@dimen/score_button_width"
-                android:layout_height="@dimen/score_row_height">
-            </Button>
+                <Button
+                    android:id="@+id/ones_button"
+                    android:onClick="recordScore"
+                    android:tag="ONES"
+                    android:layout_gravity="center"
+                    android:layout_height="@dimen/score_row_height"
+                    android:layout_width="@dimen/score_button_width">
+                </Button>
 
-            <Button
-                android:id="@+id/sixes_button"
-                android:onClick="recordScore"
-                android:tag="SIXES"
-                android:layout_gravity="center"
-                android:text=""
-                android:layout_width="@dimen/score_button_width"
-                android:layout_height="@dimen/score_row_height">
-            </Button>
+                <Button
+                    android:id="@+id/twos_button"
+                    android:onClick="recordScore"
+                    android:tag="TWOS"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:layout_width="@dimen/score_button_width"
+                    android:layout_height="@dimen/score_row_height">
+                </Button>
 
-            <Button
-                android:id="@+id/top_sub_total"
-                android:layout_gravity="center"
-                android:text=""
-                android:layout_width="@dimen/score_button_width"
-                android:layout_height="@dimen/score_row_height">
-            </Button>
+                <Button
+                    android:id="@+id/threes_button"
+                    android:onClick="recordScore"
+                    android:tag="THREES"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:layout_width="@dimen/score_button_width"
+                    android:layout_height="@dimen/score_row_height">
+                </Button>
 
-            <Button
-                android:id="@+id/top_bonus"
-                android:layout_gravity="center"
-                android:text=""
-                android:layout_width="@dimen/score_button_width"
-                android:layout_height="@dimen/score_row_height">
-            </Button>
+                <Button
+                    android:id="@+id/fours_button"
+                    android:onClick="recordScore"
+                    android:tag="FOURS"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:layout_width="@dimen/score_button_width"
+                    android:layout_height="@dimen/score_row_height">
+                </Button>
 
-            <Button
-                android:id="@+id/top_total"
-                android:layout_gravity="center"
-                android:text=""
-                android:layout_width="@dimen/score_button_width"
-                android:layout_height="@dimen/score_row_height">
-            </Button>
+                <Button
+                    android:id="@+id/fives_button"
+                    android:onClick="recordScore"
+                    android:tag="FIVES"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:layout_width="@dimen/score_button_width"
+                    android:layout_height="@dimen/score_row_height">
+                </Button>
+
+                <Button
+                    android:id="@+id/sixes_button"
+                    android:onClick="recordScore"
+                    android:tag="SIXES"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:layout_width="@dimen/score_button_width"
+                    android:layout_height="@dimen/score_row_height">
+                </Button>
+
+                <Button
+                    android:id="@+id/top_sub_total"
+                    android:layout_gravity="center"
+                    android:text="0"
+                    android:layout_width="@dimen/score_button_width"
+                    android:layout_height="@dimen/score_row_height"
+                    android:clickable="false">
+                </Button>
+
+                <Button
+                    android:id="@+id/top_bonus"
+                    android:layout_gravity="center"
+                    android:text="0"
+                    android:layout_width="@dimen/score_button_width"
+                    android:layout_height="@dimen/score_row_height"
+                    android:clickable="false">
+                </Button>
+
+                <Button
+                    android:id="@+id/top_total"
+                    android:layout_gravity="center"
+                    android:text="0"
+                    android:layout_width="@dimen/score_button_width"
+                    android:layout_height="@dimen/score_row_height"
+                    android:clickable="false">
+                </Button>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/score_card_right_labels"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:text="@string/three_of_a_kind"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/score_row_height"
+                    android:gravity="right|center" />
+                <TextView
+                    android:text="@string/four_of_a_kind"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/score_row_height"
+                    android:gravity="right|center" />
+                <TextView
+                    android:text="@string/full_house"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/score_row_height"
+                    android:gravity="right|center" />
+                <TextView
+                    android:text="@string/small_straight"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/score_row_height"
+                    android:gravity="right|center" />
+                <TextView
+                    android:text="@string/large_straight"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/score_row_height"
+                    android:gravity="right|center" />
+                <TextView
+                    android:text="@string/five_of_a_kind"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/score_row_height"
+                    android:gravity="right|center" />
+                <TextView
+                    android:text="@string/chance"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/score_row_height"
+                    android:gravity="right|center" />
+                <TextView
+                    android:text="@string/bottom_total"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/score_row_height"
+                    android:gravity="right|center" />
+            </LinearLayout>
+
+            <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/score_card_right_buttons"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/three_of_a_kind_button"
+                    android:onClick="recordScore"
+                    android:tag="THREE_OF_A_KIND"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:layout_width="@dimen/score_button_width"
+                    android:layout_height="@dimen/score_row_height">
+                </Button>
+
+                <Button
+                    android:id="@+id/four_of_a_kind_button"
+                    android:onClick="recordScore"
+                    android:tag="FOUR_OF_A_KIND"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:layout_width="@dimen/score_button_width"
+                    android:layout_height="@dimen/score_row_height">
+                </Button>
+
+                <Button
+                    android:id="@+id/full_house_button"
+                    android:onClick="recordScore"
+                    android:tag="FULL_HOUSE"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:layout_width="@dimen/score_button_width"
+                    android:layout_height="@dimen/score_row_height">
+                </Button>
+
+                <Button
+                    android:id="@+id/small_straight_button"
+                    android:onClick="recordScore"
+                    android:tag="SMALL_STRAIGHT"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:layout_width="@dimen/score_button_width"
+                    android:layout_height="@dimen/score_row_height">
+                </Button>
+
+                <Button
+                    android:id="@+id/large_straight_button"
+                    android:onClick="recordScore"
+                    android:tag="LARGE_STRAIGHT"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:layout_width="@dimen/score_button_width"
+                    android:layout_height="@dimen/score_row_height">
+                </Button>
+
+                <Button
+                    android:id="@+id/five_of_a_kind_button"
+                    android:onClick="recordScore"
+                    android:tag="FIVE_OF_A_KIND"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:layout_width="@dimen/score_button_width"
+                    android:layout_height="@dimen/score_row_height">
+                </Button>
+
+                <Button
+                    android:id="@+id/chance_button"
+                    android:onClick="recordScore"
+                    android:tag="CHANCE"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:layout_width="@dimen/score_button_width"
+                    android:layout_height="@dimen/score_row_height">
+                </Button>
+
+                <Button
+                    android:id="@+id/bottom_total"
+                    android:layout_gravity="center"
+                    android:text="0"
+                    android:layout_width="@dimen/score_button_width"
+                    android:layout_height="@dimen/score_row_height"
+                    android:clickable="false">
+                </Button>
+
+            </LinearLayout>
 
         </LinearLayout>
-
-
-
-        <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/score_card_right_labels"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:text="@string/three_of_a_kind"
-                android:textSize="16sp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/score_row_height"
-                android:gravity="right|center" />
-            <TextView
-                android:text="@string/four_of_a_kind"
-                android:textSize="16sp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/score_row_height"
-                android:gravity="right|center" />
-            <TextView
-                android:text="@string/full_house"
-                android:textSize="16sp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/score_row_height"
-                android:gravity="right|center" />
-            <TextView
-                android:text="@string/small_straight"
-                android:textSize="16sp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/score_row_height"
-                android:gravity="right|center" />
-            <TextView
-                android:text="@string/large_straight"
-                android:textSize="16sp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/score_row_height"
-                android:gravity="right|center" />
-            <TextView
-                android:text="@string/five_of_a_kind"
-                android:textSize="16sp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/score_row_height"
-                android:gravity="right|center" />
-            <TextView
-                android:text="@string/chance"
-                android:textSize="16sp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/score_row_height"
-                android:gravity="right|center" />
-            <TextView
-                android:text="@string/bottom_total"
-                android:textSize="16sp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/score_row_height"
-                android:gravity="right|center" />
-        </LinearLayout>
-
-        <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/score_card_right_buttons"
-            android:layout_width="50dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/three_of_a_kind_button"
-                android:onClick="recordScore"
-                android:tag="THREE_OF_A_KIND"
-                android:layout_gravity="center"
-                android:text=""
-                android:layout_width="@dimen/score_button_width"
-                android:layout_height="@dimen/score_row_height">
-            </Button>
-
-            <Button
-                android:id="@+id/four_of_a_kind_button"
-                android:onClick="recordScore"
-                android:tag="FOUR_OF_A_KIND"
-                android:layout_gravity="center"
-                android:text=""
-                android:layout_width="@dimen/score_button_width"
-                android:layout_height="@dimen/score_row_height">
-            </Button>
-
-            <Button
-                android:id="@+id/full_house_button"
-                android:onClick="recordScore"
-                android:tag="FULL_HOUSE"
-                android:layout_gravity="center"
-                android:text=""
-                android:layout_width="@dimen/score_button_width"
-                android:layout_height="@dimen/score_row_height">
-            </Button>
-
-            <Button
-                android:id="@+id/small_straight_button"
-                android:onClick="recordScore"
-                android:tag="SMALL_STRAIGHT"
-                android:layout_gravity="center"
-                android:text=""
-                android:layout_width="@dimen/score_button_width"
-                android:layout_height="@dimen/score_row_height">
-            </Button>
-
-            <Button
-                android:id="@+id/large_straight_button"
-                android:onClick="recordScore"
-                android:tag="LARGE_STRAIGHT"
-                android:layout_gravity="center"
-                android:text=""
-                android:layout_width="@dimen/score_button_width"
-                android:layout_height="@dimen/score_row_height">
-            </Button>
-
-            <Button
-                android:id="@+id/five_of_a_kind_button"
-                android:onClick="recordScore"
-                android:tag="FIVE_OF_A_KIND"
-                android:layout_gravity="center"
-                android:text=""
-                android:layout_width="@dimen/score_button_width"
-                android:layout_height="@dimen/score_row_height">
-            </Button>
-
-            <Button
-                android:id="@+id/chance_button"
-                android:onClick="recordScore"
-                android:tag="CHANCE"
-                android:layout_gravity="center"
-                android:text=""
-                android:layout_width="@dimen/score_button_width"
-                android:layout_height="@dimen/score_row_height">
-            </Button>
-
-            <Button
-                android:id="@+id/bottom_total"
-                android:layout_gravity="center"
-                android:text=""
-                android:layout_width="@dimen/score_button_width"
-                android:layout_height="@dimen/score_row_height">
-            </Button>
-
-        </LinearLayout>
-
-    </LinearLayout>
 
     </LinearLayout>
 
