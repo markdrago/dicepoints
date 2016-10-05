@@ -1,4 +1,4 @@
-package com.markdrago.boatzee
+package com.markdrago.dicepoints
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -7,9 +7,9 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.markdrago.boatzee.domain.DiceState
-import com.markdrago.boatzee.domain.ScoreBox
-import com.markdrago.boatzee.service.ScoreTotaller
+import com.markdrago.dicepoints.domain.DiceState
+import com.markdrago.dicepoints.domain.ScoreBox
+import com.markdrago.dicepoints.service.ScoreTotaller
 import java.util.*
 
 class GameActivity : AppCompatActivity() {

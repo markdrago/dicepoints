@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Boatzee</string>
+    <string name="app_name">Dice Points</string>
     <string name="roll_button">Roll</string>
     <string name="play_button">Play</string>
     <string name="three_of_a_kind">3 of a Kind</string>

@@ -1,4 +1,4 @@
-package com.markdrago.boatzee
+package com.markdrago.dicepoints
 
 import org.junit.Test
 import org.junit.Assert.*

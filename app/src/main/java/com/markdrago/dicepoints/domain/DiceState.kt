@@ -1,6 +1,6 @@
-package com.markdrago.boatzee.domain
+package com.markdrago.dicepoints.domain
 
-import com.markdrago.boatzee.GameConstants
+import com.markdrago.dicepoints.GameConstants
 
 class DiceState(val nextRoll: () -> Int, val diceList: IntArray, val frozenDice: BooleanArray) {
 

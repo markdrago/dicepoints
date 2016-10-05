@@ -1,4 +1,4 @@
-package com.markdrago.boatzee.domain
+package com.markdrago.dicepoints.domain
 
 enum class ScoreBox {
     ONES {

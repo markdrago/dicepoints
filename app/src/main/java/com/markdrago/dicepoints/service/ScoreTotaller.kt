@@ -1,6 +1,6 @@
-package com.markdrago.boatzee.service
+package com.markdrago.dicepoints.service
 
-import com.markdrago.boatzee.domain.ScoreBox
+import com.markdrago.dicepoints.domain.ScoreBox
 
 object ScoreTotaller {
     fun scoreTotal(scoreCard: Map<ScoreBox, Int>): Int {
